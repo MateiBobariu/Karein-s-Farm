@@ -18,7 +18,11 @@
   let quantity = 1;
   let rewardApplied = false;
 
-  function formatLei(amount) {\n    return money.format(amount) + ' lei';\n  }\n\n  function renderTotals() {
+  function formatLei(amount) {
+    return money.format(amount) + ' lei';
+  }
+
+  function renderTotals() {
     const subtotal = unitPrice * quantity;
     const discount = rewardApplied ? subtotal * 0.1 : 0;
     quantityOutput.textContent = String(quantity);
