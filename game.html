@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffd33f">
+  <meta name="description" content="A tiny farmyard mystery. Inspect the clues, question the suspects, and uncover the wild impostor.">
+  <title>Who’s the impostor? — Karin’s Farm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="game-page">
+  <div class="announcement"><span class="sunburst">✳</span> Barnyard detective training is now in session <span class="sunburst">✳</span></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Karin's Farm home"><span class="brand-icon">K<span class="leaf">✦</span></span><span>Karin's <b>Farm</b></span></a>
+    <a class="game-back" href="index.html">← &nbsp; Back to the farm</a>
+  </header>
+  <main class="mystery-main">
+    <div class="mystery-heading"><span class="mystery-stamp">K.F.<br>CASE FILE</span><div><div class="eyebrow"><span class="pill-dot"></span> Mini mystery · 3 quick cases</div><h1>Who’s the <em>impostor?</em></h1><p>Read the clue, inspect the suspects, then point a hoof at the wild one hiding in the barn.</p></div><div class="score-box"><span>GOOD GUESSES</span><b id="score">0</b><small>/ 3</small></div></div>
+    <section class="case-board" aria-live="polite">
+      <div class="case-sidebar"><div class="case-number"><span>CASE</span><b id="case-number">01</b><small>/ 03</small></div><div class="case-progress" id="case-progress"><i class="active"></i><i></i><i></i></div><div class="case-classification"><span class="class-icon">✳</span><span><b>TOP SECRET</b><small>For sharp-eyed detectives</small></span></div><a class="rules-link" href="#how-to-play">How to play ↓</a></div>
+      <div class="case-content" id="case-content">
+        <div class="case-kicker"><span class="case-icon">⌕</span><span id="case-setting">Something’s fishy at the henhouse</span></div>
+        <h2>Read the evidence</h2>
+        <div class="evidence-note"><span class="evidence-label">CLUE FROM THE FARMER</span><p id="case-clue"></p><span class="note-pin">✳</span></div>
+        <div class="suspect-heading"><div><b>THE SUSPECTS</b><span>Tap each dossier to inspect their field notes.</span></div><span id="inspect-count">0 / 3 inspected</span></div>
+        <div class="suspect-grid" id="suspect-grid"></div>
+        <div class="case-actions"><p id="case-message" role="status">Inspect the dossiers, detective.</p><button class="button button-ink accuse-button" id="accuse-button" disabled>Make your accusation <span>→</span></button></div>
+      </div>
+    </section>
+    <section class="game-instructions" id="how-to-play"><span class="instructions-icon">✎</span><div><b>Three steps to crack the case</b><p>Read the clue. Tap each suspect to see what they left behind. Choose the wild animal and make your accusation. Get all three for the Golden Haybale!</p></div></section>
+    <div class="mystery-footer"><span>✳ &nbsp; USE YOUR EYES. TRUST YOUR GUT.</span><a href="shop.html">Want the full game? Meet the deck →</a></div>
+  </main>
+  <footer class="site-footer"><a class="brand brand-footer" href="index.html"><span class="brand-icon">K<span class="leaf">✦</span></span><span>Karin's <b>Farm</b></span></a><span class="footer-copy">A little farmyard mystery, made for family game night.</span><nav aria-label="Footer navigation"><a href="about.html">Our story</a><a href="shop.html">Get the game</a><a href="contact.html">Contact</a></nav><span class="copyright">© <span data-year></span> Karin's Farm</span></footer>
+  <script src="site.js"></script><script src="game.js"></script>
+</body>
+</html>
