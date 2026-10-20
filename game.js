@@ -37,6 +37,16 @@ const grid = document.getElementById('suspect-grid');
 const clue = document.getElementById('case-clue');
 const message = document.getElementById('case-message');
 const accuse = document.getElementById('accuse-button');
+const bestScoreKey = 'karinsFarmBestDetectiveScore';
+let bestScore = 0;
+try {
+  const savedBestScore = Number(window.localStorage.getItem(bestScoreKey));
+  if (Number.isInteger(savedBestScore) && savedBestScore >= 0 && savedBestScore <= cases.length) {
+    bestScore = savedBestScore;
+  }
+} catch (error) {
+  // The game still works when browser storage is unavailable.
+}
 
 function renderCase() {
   const current = cases[round];
@@ -57,6 +67,7 @@ function renderCase() {
     pin.classList.remove('done');
     if (index < round) pin.classList.add('done');
   });
+  grid.classList.remove('locked');
   grid.innerHTML = '';
   current.suspects.forEach((suspect, index) => {
     const card = document.createElement('button');
@@ -113,10 +124,20 @@ accuse.addEventListener('click', () => {
 });
 
 function renderResult() {
+  const isNewBest = score > bestScore;
+  if (isNewBest) {
+    bestScore = score;
+    try {
+      window.localStorage.setItem(bestScoreKey, String(bestScore));
+    } catch (error) {
+      // Keep showing the result even when browser storage is unavailable.
+    }
+  }
+  const bestScoreMessage = isNewBest ? 'New personal best!' : `Personal best: ${bestScore}/3`;
   const board = document.querySelector('.case-board');
   const grade = score === 3 ? 'Golden Haybale Detective!' : score === 2 ? 'Top-notch Barn Sleuth!' : score === 1 ? 'Junior Clue Sniffer!' : 'The impostors got away!';
   const cheer = score === 3 ? 'Every wild one unmasked. The farm is safe because of you!' : 'The barnyard is full of clever disguises. Fancy another go?';
-  board.innerHTML = `<div class="result-card"><div class="result-medal">${score === 3 ? '✷' : '✳'}</div><div class="eyebrow"><span class="pill-dot"></span> Investigation complete</div><h2>${grade}</h2><p>${cheer}</p><div class="result-score"><b>${score}</b><span>out of 3<br>good guesses</span></div><button class="button button-ink" id="play-again">Play again <span>↻</span></button><a class="result-link" href="shop.html">Meet the full game deck →</a></div>`;
+  board.innerHTML = `<div class="result-card"><div class="result-medal">${score === 3 ? '✷' : '✳'}</div><div class="eyebrow"><span class="pill-dot"></span> Investigation complete</div><h2>${grade}</h2><p>${cheer}</p><div class="result-score"><b>${score}</b><span>out of 3<br>good guesses</span></div><p class="best-score-message">${bestScoreMessage}</p><button class="button button-ink" id="play-again">Play again <span>↻</span></button><a class="result-link" href="shop.html">Meet the full game deck →</a></div>`;
   document.getElementById('play-again').addEventListener('click', () => window.location.reload());
 }
 
