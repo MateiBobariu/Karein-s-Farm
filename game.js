@@ -47,6 +47,7 @@
   let stage = 0;
   let selectedName = '';
   let completed = 0;
+  let resolved = false;
   const inspected = new Set();
 
   function updateProgress() {
@@ -64,6 +65,7 @@
   function renderStage() {
     const current = cases[stage];
     selectedName = '';
+    resolved = false;
     inspected.clear();
     grid.classList.remove('locked');
     grid.replaceChildren();
@@ -150,6 +152,11 @@
   }
 
   accuse.addEventListener('click', () => {
+    if (resolved) {
+      stage += 1;
+      renderStage();
+      return;
+    }
     if (accuse.disabled || !selectedName) return;
     const current = cases[stage];
     if (selectedName !== current.answer) {
@@ -179,12 +186,9 @@
       window.setTimeout(showReward, 650);
       return;
     }
+    resolved = true;
     accuse.disabled = false;
     accuse.innerHTML = 'Next case <span>→</span>';
-    accuse.onclick = () => {
-      stage += 1;
-      renderStage();
-    };
   });
 
   renderStage();
