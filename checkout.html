@@ -27,13 +27,16 @@
     <div class="checkout-layout" id="checkout-layout">
       <section class="checkout-card">
         <div class="checkout-card-heading"><span class="checkout-step">01</span><div><h2>Delivery details</h2><p>Your details are saved with this request so Karin can follow up about delivery and payment.</p></div></div>
-        <form id="checkout-form">\n          <div class="order-honeypot" aria-hidden="true"><label>Leave this field empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <form id="checkout-form">
+          <div class="order-honeypot" aria-hidden="true"><label>Leave this field empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
           <label class="checkout-field">Full name<input name="name" autocomplete="name" required placeholder="Your name"></label>
           <label class="checkout-field">Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
           <label class="checkout-field field-wide">Street address<input name="address" autocomplete="street-address" required placeholder="House number and street"></label>
           <label class="checkout-field">Town or city<input name="city" autocomplete="address-level2" required placeholder="Your town"></label>
           <label class="checkout-field">Postcode<input name="postal" autocomplete="postal-code" required placeholder="Postcode"></label>
-          <div class="checkout-notice"><span>✳</span><p><b>No online payment</b><br>This sends an order request. No charge is made online.</p></div>\n          <label class="order-consent"><input name="orderConsent" type="checkbox" required><span>I agree to have these details saved so Karin can follow up about this order request.</span></label>\n          <p class="order-error" id="order-error" role="alert" hidden></p>
+          <div class="checkout-notice"><span>✳</span><p><b>No online payment</b><br>This sends an order request. No charge is made online.</p></div>
+          <label class="order-consent"><input name="orderConsent" type="checkbox" required><span>I agree to have these details saved so Karin can follow up about this order request.</span></label>
+          <p class="order-error" id="order-error" role="alert" hidden></p>
           <button class="button button-ink place-order" type="submit">Send order request <span>→</span></button>
         </form>
       </section>
