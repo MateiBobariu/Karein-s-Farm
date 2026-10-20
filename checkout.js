@@ -1,10 +1,10 @@
 (() => {
   'use strict';
 
-  const unitPrice = 24;
-  const shippingPrice = 4;
+  const unitPrice = 100;
+  
   const rewardCode = 'HAYBALE10';
-  const money = new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' });
+  const money = new Intl.NumberFormat('ro-RO', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
   const quantityOutput = document.getElementById('quantity');
   const subtotalOutput = document.getElementById('subtotal');
   const discountRow = document.getElementById('discount-row');
@@ -18,14 +18,14 @@
   let quantity = 1;
   let rewardApplied = false;
 
-  function renderTotals() {
+  function formatLei(amount) {\n    return money.format(amount) + ' lei';\n  }\n\n  function renderTotals() {
     const subtotal = unitPrice * quantity;
     const discount = rewardApplied ? subtotal * 0.1 : 0;
     quantityOutput.textContent = String(quantity);
-    subtotalOutput.textContent = money.format(subtotal);
-    discountOutput.textContent = '−' + money.format(discount);
+    subtotalOutput.textContent = formatLei(subtotal);
+    discountOutput.textContent = '−' + formatLei(discount);
     discountRow.hidden = !rewardApplied;
-    totalOutput.textContent = money.format(subtotal - discount + shippingPrice);
+    totalOutput.textContent = formatLei(subtotal - discount);
   }
 
   function applyReward() {
@@ -33,11 +33,11 @@
     if (entered === rewardCode) {
       rewardApplied = true;
       promoInput.value = rewardCode;
-      promoStatus.textContent = '10% detective reward applied.';
+      promoStatus.textContent = '10% discount applied.';
       promoStatus.className = 'promo-success';
     } else {
       rewardApplied = false;
-      promoStatus.textContent = entered ? 'That code isn’t recognised in this demo.' : 'Enter HAYBALE10 to preview the 10% reward.';
+      promoStatus.textContent = entered ? 'That code isn’t recognised. Check it and try again.' : 'Enter HAYBALE10 for 10% off.';
       promoStatus.className = 'promo-error';
     }
     renderTotals();
@@ -65,15 +65,15 @@
       applyReward();
     }
   } catch (error) {
-    // The prototype checkout still works when browser storage is unavailable.
+    // The checkout preview works when browser storage is unavailable.
   }
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!form.reportValidity()) return;
     const firstName = form.elements.name.value.trim().split(/\s+/)[0] || 'detective';
-    document.getElementById('confirmation-copy').textContent = 'Thanks, ' + firstName + '! Your demo order total is ' + totalOutput.textContent + '.';
-    document.getElementById('order-reference').textContent = 'KF-DEMO-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+    document.getElementById('confirmation-copy').textContent = 'Thanks, ' + firstName + '! Your total before delivery is ' + totalOutput.textContent + '.';
+    document.getElementById('order-reference').textContent = 'KF-PREVIEW-' + Math.random().toString(36).slice(2, 8).toUpperCase();
     layout.hidden = true;
     confirmation.hidden = false;
     confirmation.scrollIntoView({ behavior: 'smooth', block: 'start' });
