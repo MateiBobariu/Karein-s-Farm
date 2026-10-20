@@ -10,11 +10,10 @@ if (menuButton && mainNav) {
 }
 
 /*
- * Analytics configuration. Add the IDs from your Google Analytics web stream
- * and Microsoft Clarity project to enable tracking after visitor consent.
+ * Analytics configuration. GA4 and Clarity load only after visitor consent.
  */
 const analyticsConfig = {
-  ga4MeasurementId: '',
+  ga4MeasurementId: 'G-M49YZWJYS2',
   clarityProjectId: '',
 };
 
