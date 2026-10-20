@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffd33f">
+  <meta name="description" content="Preview a checkout for the Karin's Farm game deck. Prototype only; no real payments are taken.">
+  <title>Checkout prototype — Karin's Farm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body class="checkout-page">
+  <div class="announcement"><span class="sunburst">✳</span> A cheeky little mystery for the whole family <span class="sunburst">✳</span></div>
+  <header class="site-header checkout-header">
+    <a class="brand" href="index.html" aria-label="Karin's Farm home"><span class="brand-icon">K<span class="leaf">✦</span></span><span>Karin's <b>Farm</b></span></a>
+    <a class="checkout-back" href="shop.html">← &nbsp; Back to the game</a>
+  </header>
+  <main class="checkout-main">
+    <div class="checkout-heading">
+      <div class="eyebrow"><span class="pill-dot"></span> Purchase prototype · no charge</div>
+      <h1>Your farmyard<br><em>order.</em></h1>
+      <p>Take a look at how ordering Karin’s Farm could work. This demo keeps your details in this page and does not submit an order.</p>
+    </div>
+    <div class="checkout-layout" id="checkout-layout">
+      <section class="checkout-card">
+        <div class="checkout-card-heading"><span class="checkout-step">01</span><div><h2>Delivery details</h2><p>Just for this checkout preview. Nothing is sent or saved.</p></div></div>
+        <form id="checkout-form">
+          <label class="checkout-field">Full name<input name="name" autocomplete="name" required placeholder="Your name"></label>
+          <label class="checkout-field">Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+          <label class="checkout-field field-wide">Street address<input name="address" autocomplete="street-address" required placeholder="House number and street"></label>
+          <label class="checkout-field">Town or city<input name="city" autocomplete="address-level2" required placeholder="Your town"></label>
+          <label class="checkout-field">Postcode<input name="postal" autocomplete="postal-code" required placeholder="Postcode"></label>
+          <div class="checkout-notice"><span>✳</span><p><b>Prototype checkout</b><br>No payment is collected, and your form details stay in this browser session.</p></div>
+          <button class="button button-ink place-order" type="submit">Place demo order <span>→</span></button>
+        </form>
+      </section>
+      <aside class="order-card" aria-label="Order summary">
+        <div class="order-card-heading"><span class="checkout-step">02</span><h2>Your order</h2></div>
+        <div class="order-product">
+          <div class="order-art"><img src="assets/fox.jpg" alt=""></div>
+          <div class="order-product-copy"><span class="order-label">THE FULL DECK</span><h3>Karin’s Farm</h3><p>One little farmyard mystery</p><strong>€24.00 <small>demo price</small></strong></div>
+        </div>
+        <div class="quantity-row"><span>Quantity</span><div class="quantity-control"><button type="button" id="quantity-minus" aria-label="Decrease quantity">−</button><output id="quantity" aria-live="polite">1</output><button type="button" id="quantity-plus" aria-label="Increase quantity">+</button></div></div>
+        <div class="promo-box"><label for="promo-code">Detective reward code</label><div class="promo-input"><input id="promo-code" type="text" autocomplete="off" placeholder="Enter HAYBALE10"><button type="button" id="apply-promo">Apply</button></div><p id="promo-status" aria-live="polite"></p></div>
+        <div class="order-totals">
+          <div><span>Subtotal</span><strong id="subtotal">€24.00</strong></div>
+          <div id="discount-row" class="discount-row" hidden><span>Detective reward (10%)</span><strong id="discount-amount">−€0.00</strong></div>
+          <div><span>Demo shipping</span><strong id="shipping">€4.00</strong></div>
+          <div class="total-row"><span>Total <small>prototype estimate</small></span><strong id="total">€28.00</strong></div>
+        </div>
+        <p class="order-footnote">Sample price and shipping are placeholders. No payment will be taken.</p>
+      </aside>
+    </div>
+    <section class="order-confirmation" id="order-confirmation" hidden aria-live="polite">
+      <div class="confirmation-medal">✷</div><div class="eyebrow"><span class="pill-dot"></span> Demo order complete</div>
+      <h2>Your farmyard adventure is on its way!</h2>
+      <p id="confirmation-copy"></p>
+      <div class="confirmation-ref"><span>DEMO ORDER</span><strong id="order-reference"></strong></div>
+      <p class="confirmation-note">This was only a prototype: no payment was taken, no order was sent, and your details were not saved.</p>
+      <a class="button button-ink" href="shop.html">Back to the game <span>→</span></a>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand brand-footer" href="index.html"><span class="brand-icon">K<span class="leaf">✦</span></span><span>Karin's <b>Farm</b></span></a><span class="footer-copy">A little farmyard mystery, made for family game night.</span><nav aria-label="Footer navigation"><a href="about.html">Our story</a><a href="shop.html">Get the game</a><a href="contact.html">Contact</a></nav><span class="copyright">© <span data-year></span> Karin's Farm</span></footer>
+  <script src="site.js"></script>
+  <script src="checkout.js"></script>
+</body>
+</html>
