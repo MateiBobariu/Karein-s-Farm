@@ -86,3 +86,16 @@ body{background:var(--cream);color:var(--ink)}
 .game-page .site-footer{margin-top:10px}
 @media(max-width:760px){.mystery-main{padding:35px 18px 26px}.mystery-heading{grid-template-columns:48px 1fr auto;gap:12px}.mystery-stamp{width:47px;height:47px;font-size:7px}.mystery-heading h1{font-size:clamp(30px,7vw,45px)}.mystery-heading p{font-size:10px;line-height:1.4}.score-box{width:75px;padding:7px 4px}.score-box span{font-size:6px}.score-box b{font-size:21px}.score-box small{font-size:7px}.case-board{grid-template-columns:1fr;min-height:0}.case-sidebar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:13px;padding:11px 16px;border-right:0;border-bottom:2px solid var(--ink)}.case-progress{margin:0}.case-classification{display:none}.rules-link{margin:0;font-size:8px}.case-content{padding:19px 16px}.case-content>h2{font-size:24px}.evidence-note p{font-size:14px}.suspect-grid{gap:8px}.suspect-card{padding:7px}.suspect-card img{height:112px}.suspect-role{top:10px;left:10px;font-size:6px}.suspect-name{font-size:14px}.suspect-name small{font-size:7px}.field-note{font-size:8px;padding:7px}.case-actions{align-items:flex-start;flex-direction:column}.case-actions .button{width:100%}.game-instructions{align-items:flex-start;padding:13px}.game-instructions p{font-size:9px}.mystery-footer{font-size:7px}.mystery-footer a{text-align:right}.result-card{padding:40px 20px}}
 @media(max-width:430px){.mystery-heading{grid-template-columns:1fr auto}.mystery-stamp{display:none}.mystery-heading h1{font-size:34px}.suspect-grid{grid-template-columns:1fr}.suspect-card{min-height:100px;display:grid;grid-template-columns:86px 1fr;grid-template-rows:auto auto;column-gap:9px;align-items:center}.suspect-role{position:static;grid-column:2;grid-row:1;justify-self:start;align-self:end}.suspect-card img{grid-column:1;grid-row:1/3;height:90px}.suspect-name{grid-column:2;grid-row:2;align-self:start}.field-note{grid-column:1/3}.suspect-heading>span{font-size:7px}}
+
+.discount-reward{margin:22px auto;padding:17px;max-width:340px;background:#fff2bc;border:2px dashed var(--coral);border-radius:12px}
+.discount-reward>span{display:block;font-size:8px;font-weight:800;letter-spacing:.14em;color:var(--green)}
+.discount-reward>strong{display:block;margin:4px 0;color:var(--coral);font:600 30px var(--display)}
+.discount-reward p{font-size:10px;line-height:1.45}
+.discount-reward code{display:block;margin:10px auto;padding:10px;background:var(--paper);border:1px solid #e8d88c;border-radius:7px;font:800 15px var(--body);letter-spacing:.12em;color:var(--ink)}
+.discount-reward .button{display:block;width:100%;padding:10px;font-size:10px}
+.copy-status{display:block;min-height:16px;margin-top:6px;font-size:9px;color:var(--green)}
+.detective-discount{display:none;margin:16px 0;padding:14px 16px;background:#fff2bc;border:2px dashed var(--coral);border-radius:10px;color:var(--ink)}
+.detective-discount strong{display:block;font:600 22px var(--display);color:var(--coral)}
+.detective-discount p{margin:3px 0 8px;font-size:11px}
+.detective-discount code{font-weight:800;letter-spacing:.1em}
+.detective-discount button{margin-left:8px;border:0;background:var(--green);color:white;padding:7px 10px;border-radius:20px;font:700 10px var(--body);cursor:pointer}
