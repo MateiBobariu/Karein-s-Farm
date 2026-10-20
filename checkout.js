@@ -2,7 +2,6 @@
   'use strict';
 
   const unitPrice = 100;
-  
   const rewardCode = 'HAYBALE10';
   const money = new Intl.NumberFormat('ro-RO', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
   const quantityOutput = document.getElementById('quantity');
@@ -15,6 +14,8 @@
   const form = document.getElementById('checkout-form');
   const layout = document.getElementById('checkout-layout');
   const confirmation = document.getElementById('order-confirmation');
+  const errorMessage = document.getElementById('order-error');
+  const submitButton = form.querySelector('[type="submit"]');
   let quantity = 1;
   let rewardApplied = false;
 
@@ -69,18 +70,51 @@
       applyReward();
     }
   } catch (error) {
-    // The checkout preview works when browser storage is unavailable.
+    // Checkout still works when browser storage is unavailable.
   }
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    errorMessage.hidden = true;
     if (!form.reportValidity()) return;
-    const firstName = form.elements.name.value.trim().split(/\s+/)[0] || 'detective';
-    document.getElementById('confirmation-copy').textContent = 'Thanks, ' + firstName + '! Your total before delivery is ' + totalOutput.textContent + '.';
-    document.getElementById('order-reference').textContent = 'KF-PREVIEW-' + Math.random().toString(36).slice(2, 8).toUpperCase();
-    layout.hidden = true;
-    confirmation.hidden = false;
-    confirmation.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const data = new FormData(form);
+    const order = {
+      name: String(data.get('name') || '').trim(),
+      email: String(data.get('email') || '').trim(),
+      address: String(data.get('address') || '').trim(),
+      city: String(data.get('city') || '').trim(),
+      postal: String(data.get('postal') || '').trim(),
+      quantity,
+      promoCode: rewardApplied ? rewardCode : '',
+      website: String(data.get('website') || ''),
+      orderConsent: data.get('orderConsent') === 'on',
+    };
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending request…';
+
+    try {
+      const response = await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || 'We couldn’t send your order request. Please try again.');
+
+      document.getElementById('confirmation-copy').textContent =
+        'Thank you, ' + order.name.split(/\s+/)[0] + '. Your total before delivery is ' + formatLei(result.totalBeforeDelivery) + '.';
+      document.getElementById('order-reference').textContent = result.orderReference;
+      layout.hidden = true;
+      confirmation.hidden = false;
+      confirmation.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (error) {
+      errorMessage.textContent = error.message || 'Something went wrong. Please try again.';
+      errorMessage.hidden = false;
+      submitButton.disabled = false;
+      submitButton.innerHTML = 'Send order request <span>→</span>';
+    }
   });
 
   renderTotals();

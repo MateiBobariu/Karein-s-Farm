@@ -68,3 +68,9 @@
 .confirmation-note{font-size:9px!important}
 @media(max-width:800px){.checkout-main{padding:40px 20px 54px}.checkout-layout{grid-template-columns:1fr}.order-card{position:static;grid-row:1}.checkout-card{grid-row:2}}
 @media(max-width:520px){.checkout-main{padding:32px 16px 44px}.checkout-header{padding:0 18px}.checkout-heading{margin-bottom:24px}.checkout-heading h1{font-size:47px}.checkout-heading>p{font-size:11px}.checkout-card,.order-card{padding:18px;border-radius:13px}.checkout-card h2{font-size:21px}#checkout-form{grid-template-columns:1fr;gap:12px}.field-wide,.checkout-notice,.place-order{grid-column:auto}.checkout-field input{min-height:43px}.order-art{width:76px;height:86px;flex-basis:76px}.site-footer{gap:12px;flex-wrap:wrap}}
+
+.order-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.order-consent{display:flex;align-items:flex-start;gap:10px;margin:12px 0 16px;color:#40545a;font-size:11px;line-height:1.45}
+.order-consent input{margin:2px 0 0;accent-color:#075d59}
+.order-error{margin:0 0 14px;padding:10px 12px;border:1px solid #b85135;border-radius:8px;background:#fff0e9;color:#85361f;font-size:12px}
+.place-order:disabled{opacity:.7;cursor:wait}
