@@ -27,6 +27,7 @@ test('shop pre-order buttons lead to the existing checkout form', async () => {
 
   const checkout = await read('checkout.html');
   assert.match(checkout, /id="checkout-form"/);
+  assert.match(checkout, /Send pre-order request/);
   assert.match(checkout, /physical board game with cards/i);
   assert.match(checkout, /120 lei/);
   assert.match(checkout, /does not reserve a copy/i);
