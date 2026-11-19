@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const unitPrice = 100;
+  const unitPrice = 120;
   const rewardCode = 'HAYBALE10';
   const money = new Intl.NumberFormat('ro-RO', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
   const quantityOutput = document.getElementById('quantity');
@@ -113,7 +113,7 @@
       errorMessage.textContent = error.message || 'Something went wrong. Please try again.';
       errorMessage.hidden = false;
       submitButton.disabled = false;
-      submitButton.innerHTML = 'Send order request <span>→</span>';
+      submitButton.innerHTML = 'Send pre-order request <span>→</span>';
     }
   });
 

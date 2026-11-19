@@ -1,6 +1,6 @@
 import crypto from 'node:crypto';
 
-const UNIT_PRICE_LEI = 100;
+const UNIT_PRICE_LEI = 120;
 const REWARD_CODE = 'HAYBALE10';
 const MAX_BODY_BYTES = 8 * 1024;
 
