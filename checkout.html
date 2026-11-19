@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffd33f">
-  <meta name="description" content="Shop the Karin's Farm game deck.">
+  <meta name="description" content="Pre-order the Karin's Farm physical board game with cards for 120 lei.">
   <title>Checkout — Karin's Farm</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,13 +20,13 @@
   </header>
   <main class="checkout-main">
     <div class="checkout-heading">
-      <div class="eyebrow"><span class="pill-dot"></span> Your order</div>
-      <h1>Your farmyard<br><em>order.</em></h1>
-      <p>Submit your order request. Karin will contact you to confirm delivery and payment; no payment is taken online.</p>
+      <div class="eyebrow"><span class="pill-dot"></span> Pre-order request</div>
+      <h1>Your farmyard<br><em>pre-order.</em></h1>
+      <p>Send a pre-order request for the physical board game with cards. Karin will confirm availability, delivery, and payment. Your request does not reserve a copy, and no payment is taken online.</p>
     </div>
     <div class="checkout-layout" id="checkout-layout">
       <section class="checkout-card">
-        <div class="checkout-card-heading"><span class="checkout-step">01</span><div><h2>Delivery details</h2><p>Your details are saved with this request so Karin can follow up about delivery and payment.</p></div></div>
+        <div class="checkout-card-heading"><span class="checkout-step">01</span><div><h2>Pre-order details</h2><p>Your details are saved with this request so Karin can confirm availability, delivery, and payment.</p></div></div>
         <form id="checkout-form">
           <div class="order-honeypot" aria-hidden="true"><label>Leave this field empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
           <label class="checkout-field">Full name<input name="name" autocomplete="name" required placeholder="Your name"></label>
@@ -34,8 +34,8 @@
           <label class="checkout-field field-wide">Street address<input name="address" autocomplete="street-address" required placeholder="House number and street"></label>
           <label class="checkout-field">Town or city<input name="city" autocomplete="address-level2" required placeholder="Your town"></label>
           <label class="checkout-field">Postcode<input name="postal" autocomplete="postal-code" required placeholder="Postcode"></label>
-          <div class="checkout-notice"><span>✳</span><p><b>No online payment</b><br>This sends an order request. No charge is made online.</p></div>
-          <label class="order-consent"><input name="orderConsent" type="checkbox" required><span>I agree to have these details saved so Karin can follow up about this order request.</span></label>
+          <div class="checkout-notice"><span>✳</span><p><b>No online payment</b><br>This sends a pre-order request; it does not reserve a copy. No charge is made online.</p></div>
+          <label class="order-consent"><input name="orderConsent" type="checkbox" required><span>I agree to have these details saved so Karin can follow up about this pre-order request.</span></label>
           <p class="order-error" id="order-error" role="alert" hidden></p>
           <button class="button button-ink place-order" type="submit">Send order request <span>→</span></button>
         </form>
@@ -44,25 +44,25 @@
         <div class="order-card-heading"><span class="checkout-step">02</span><h2>Your order</h2></div>
         <div class="order-product">
           <div class="order-art"><img src="assets/fox.jpg" alt=""></div>
-          <div class="order-product-copy"><span class="order-label">THE FULL DECK</span><h3>Karin’s Farm</h3><p>One little farmyard mystery</p><strong>100 lei</strong></div>
+          <div class="order-product-copy"><span class="order-label">PHYSICAL BOARD GAME</span><h3>Karin’s Farm</h3><p>Physical board game with cards</p><strong>120 lei</strong></div>
         </div>
         <div class="quantity-row"><span>Quantity</span><div class="quantity-control"><button type="button" id="quantity-minus" aria-label="Decrease quantity">−</button><output id="quantity" aria-live="polite">1</output><button type="button" id="quantity-plus" aria-label="Increase quantity">+</button></div></div>
         <div class="promo-box"><label for="promo-code">Detective reward code</label><div class="promo-input"><input id="promo-code" type="text" autocomplete="off" placeholder="Enter HAYBALE10"><button type="button" id="apply-promo">Apply</button></div><p id="promo-status" aria-live="polite"></p></div>
         <div class="order-totals">
-          <div><span>Subtotal</span><strong id="subtotal">100 lei</strong></div>
+          <div><span>Subtotal</span><strong id="subtotal">120 lei</strong></div>
           <div id="discount-row" class="discount-row" hidden><span>Detective reward (10%)</span><strong id="discount-amount">−0 lei</strong></div>
           <div><span>Delivery</span><strong id="shipping">Confirmed before order</strong></div>
-          <div class="total-row"><span>Total before delivery</span><strong id="total">100 lei</strong></div>
+          <div class="total-row"><span>Total before delivery</span><strong id="total">120 lei</strong></div>
         </div>
         <p class="order-footnote">Delivery cost and payment will be confirmed with you before the order is finalized.</p>
       </aside>
     </div>
     <section class="order-confirmation" id="order-confirmation" hidden aria-live="polite">
       <div class="confirmation-medal">✷</div><div class="eyebrow"><span class="pill-dot"></span> Request received</div>
-      <h2>Your order request has been sent.</h2>
+      <h2>Your pre-order request has been received.</h2>
       <p id="confirmation-copy"></p>
       <div class="confirmation-ref"><span>ORDER SUMMARY</span><strong id="order-reference"></strong></div>
-      <p class="confirmation-note">No payment has been taken. Karin will contact you to confirm delivery and payment.</p>
+      <p class="confirmation-note">This request does not reserve a copy. No payment has been taken. Karin will contact you to confirm availability, delivery, and payment.</p>
       <a class="button button-ink" href="shop.html">Back to the game <span>→</span></a>
     </section>
   </main>
